@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>농가 질문지 — 심기 전 · 심고 보름까지 · 잎 자랄 때 · 속 찰 때 · 거둘 때</title>
+<style>
+/* 밭에서 보시는 종이다. 글씨 크기가 이 파일의 요점이다.
+   색·글꼴을 바깥에서 안 불러온다 — 인터넷 없이 두 번 클릭해서 열려야 한다. */
+:root{--ink:#16201a;--ink2:#4a5650;--green:#1f6f43;--soft:#e3f2e8;--line:#cfd8d2;--amber:#8a5a00;--amber-soft:#fff4d6}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:#f6f7f4;color:var(--ink);
+ font:1rem/1.7 "Malgun Gothic","맑은 고딕",-apple-system,"Apple SD Gothic Neo",sans-serif;
+ word-break:keep-all}
+.bar{position:sticky;top:0;z-index:5;background:var(--soft);border-bottom:2px solid var(--green);
+ padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.bar b{color:var(--green);font-size:1.15rem}
+.bar span{color:var(--ink2);font-size:.9rem}
+button{margin-left:auto;background:var(--green);color:#fff;border:0;border-radius:10px;
+ padding:12px 22px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;min-height:48px}
+.sheet{max-width:720px;margin:0 auto 28px;background:#fff;border:1px solid var(--line);
+ border-radius:14px;padding:26px 34px 22px}
+.step{margin:0 0 10px;font-size:.88rem;color:var(--ink2);font-weight:700}
+.now{display:inline-block;margin-left:8px;background:var(--amber-soft);color:var(--amber);
+ border-radius:20px;padding:2px 11px;font-size:.84rem}
+h1{font-size:2rem;line-height:1.3;margin:0 0 4px;color:var(--green)}
+.sub{margin:0 0 10px;font-size:1.05rem;color:var(--ink2)}
+/* 그 장을 보시는 기간 — 농가는 "며칠째" 보다 날짜로 보신다 */
+.when{margin:0 0 8px;padding:9px 14px;background:var(--soft);border-radius:10px;
+ font-size:.95rem;color:var(--ink2);display:inline-block}
+.when b{font-size:1.15rem;color:var(--green)}
+.note{margin:0 0 18px;font-size:.88rem;color:var(--ink2)}
+.note b{color:var(--ink)}
+/* 질문 — 이 종이에서 가장 큰 글씨여야 한다 */
+.qs{margin:0 0 28px;padding:0;list-style:none;counter-reset:q}
+.qs li{counter-increment:q;position:relative;padding:14px 0 14px 54px;border-top:1px solid var(--line)}
+.qs li:last-child{border-bottom:1px solid var(--line)}
+.qs li::before{content:counter(q);position:absolute;left:0;top:17px;
+ width:38px;height:38px;border-radius:50%;background:var(--soft);color:var(--green);
+ font-size:1.15rem;line-height:38px;text-align:center;font-weight:700}
+.q{display:block;font-size:1.5rem;line-height:1.45;font-weight:700}
+/* 답이 있어야 하는 기간 */
+.sp{display:block;margin-top:3px;font-size:.92rem;color:var(--ink2)}
+h2{font-size:1.15rem;margin:0 0 10px;padding-left:10px;border-left:5px solid var(--green)}
+.guide{margin:0;padding-left:1.25em;font-size:1rem}
+.guide li{margin:9px 0}
+.foot{margin:24px 0 0;padding-top:12px;border-top:1px solid var(--line);
+ font-size:.8rem;color:var(--ink2);text-align:right}
+
+/* 인쇄 — 한 묶음에 한 장. pt 로 적는 까닭은 종이 위 실제 크기이기 때문이다 */
+@media print{
+ @page{size:A4;margin:13mm}
+ html{font-size:12pt}
+ body{background:#fff}
+ .bar{display:none}
+ .sheet{max-width:none;margin:0;border:0;border-radius:0;padding:0;break-after:page;page-break-after:always}
+ .sheet:last-child{break-after:auto;page-break-after:auto}
+ h1{font-size:25pt}
+ .sub{font-size:12pt}
+ .when{font-size:10.5pt;padding:5pt 9pt;margin-bottom:5pt}
+ .when b{font-size:13pt}
+ .note{font-size:9.5pt;margin-bottom:10pt}
+ .q{font-size:18pt}
+ .sp{font-size:10pt}
+ .qs li{padding:9pt 0 9pt 36pt}
+ .qs li::before{width:25pt;height:25pt;line-height:25pt;font-size:12pt;top:10pt}
+ h2{font-size:12pt}
+ .guide{font-size:10.5pt}
+ .qs li,.guide li{break-inside:avoid;page-break-inside:avoid}
+}
+</style></head>
+<body>
+<div class="bar">
+  <b>농가 질문지</b>
+  <span>종이 5장 · 질문 34개 · 심은 날 2026.09.02 기준</span>
+  <button onclick="window.print()">인쇄하기</button>
+</div>
+<section class="sheet">
+  <p class="step">1 / 5</p>
+  <h1>심기 전</h1>
+  <p class="sub">밭 손보고 씨 넣을 때</p>
+  <p class="when">이 장을 보시는 때 &nbsp; <b>8월 2일 ~ 9월 1일</b></p>
+  <p class="note">질문 아래 날짜는 <b>그 답이 있어야 하는 기간</b>입니다.</p>
+  <ol class="qs">
+    <li><span class="q">밭 준비는 어디까지 하셨나요?</span><span class="sp">8월 2일 ~ 9월 1일</span></li>
+    <li><span class="q">씨는 언제 어떻게 넣으셨나요?</span><span class="sp">8월 2일 ~ 9월 15일</span></li>
+    <li><span class="q">씨는 얼마나 넣으셨나요?</span><span class="sp">8월 2일 ~ 9월 15일</span></li>
+    <li><span class="q">한 자리에 몇 알씩 넣으셨나요?</span><span class="sp">8월 2일 ~ 9월 15일</span></li>
+    <li><span class="q">넣으신 씨는 무슨 품종인가요?</span><span class="sp">8월 2일 ~ 9월 15일</span></li>
+    <li><span class="q">모종은 몇 포기나 심으셨나요?</span><span class="sp">8월 25일 ~ 9월 4일</span></li>
+    <li><span class="q">씨 넣고 며칠 만에 싹이 났던가요?</span><span class="sp">8월 25일 ~ 9월 22일</span></li>
+  </ol>
+  <h2>말씀하실 때</h2>
+  <ul class="guide">
+    <li><b>짧아도 괜찮습니다.</b> 한 마디여도 됩니다.</li>
+    <li><b>평소 말씨 그대로.</b> 사투리도, 중간에 끊겨도, 고쳐 말씀하셔도 괜찮습니다. 정해진 말투는 없습니다.</li>
+    <li><b>언제 하신 일인지 들어가게 해 주세요.</b> “몇 시”라고 하셔도 되고 “아침 먹고 나서”, “해 뜨자마자” 라고 하셔도 똑같이 좋습니다.</li>
+    <li><b>모르시는 것은 “모르겠다”고 하셔도 됩니다.</b> 억지로 맞춰 말씀하지 않으셔도 됩니다.</li>
+    <li><b>안 하신 일은 건너뛰세요.</b> 다 채우실 필요 없습니다.</li>
+  </ul>
+  <p class="foot">팜브레인 · 스쿨모아㈜ · 심은 날 2026.09.02 기준 · 2026.10.11</p>
+</section>
+<section class="sheet">
+  <p class="step">2 / 5</p>
+  <h1>심고 보름까지</h1>
+  <p class="sub">뿌리 내릴 때</p>
+  <p class="when">이 장을 보시는 때 &nbsp; <b>9월 2일 ~ 9월 15일</b></p>
+  <p class="note">질문 아래 날짜는 <b>그 답이 있어야 하는 기간</b>입니다.</p>
+  <ol class="qs">
+    <li><span class="q">오늘 배추밭에서 하신 일을 말씀해 주세요.</span><span class="sp">9월 2일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">뿌리 못 내린 포기가 있던가요?</span><span class="sp">9월 2일 ~ 9월 15일</span></li>
+    <li><span class="q">물은 얼마나 주셨나요?</span><span class="sp">9월 2일 ~ 11월 5일</span></li>
+    <li><span class="q">죽은 자리에 다시 심으셨나요?</span><span class="sp">9월 4일 ~ 9월 22일</span></li>
+  </ol>
+  <h2>말씀하실 때</h2>
+  <ul class="guide">
+    <li><b>짧아도 괜찮습니다.</b> 한 마디여도 됩니다.</li>
+    <li><b>평소 말씨 그대로.</b> 사투리도, 중간에 끊겨도, 고쳐 말씀하셔도 괜찮습니다. 정해진 말투는 없습니다.</li>
+    <li><b>언제 하신 일인지 들어가게 해 주세요.</b> “몇 시”라고 하셔도 되고 “아침 먹고 나서”, “해 뜨자마자” 라고 하셔도 똑같이 좋습니다.</li>
+    <li><b>모르시는 것은 “모르겠다”고 하셔도 됩니다.</b> 억지로 맞춰 말씀하지 않으셔도 됩니다.</li>
+    <li><b>안 하신 일은 건너뛰세요.</b> 다 채우실 필요 없습니다.</li>
+  </ul>
+  <p class="foot">팜브레인 · 스쿨모아㈜ · 심은 날 2026.09.02 기준 · 2026.10.11</p>
+</section>
+<section class="sheet">
+  <p class="step">3 / 5</p>
+  <h1>잎 자랄 때</h1>
+  <p class="sub">심고 보름 ~ 한 달 반</p>
+  <p class="when">이 장을 보시는 때 &nbsp; <b>9월 16일 ~ 10월 10일</b></p>
+  <p class="note">질문 아래 날짜는 <b>그 답이 있어야 하는 기간</b>입니다.</p>
+  <ol class="qs">
+    <li><span class="q">웃거름은 무엇을 얼마나 주셨나요?</span><span class="sp">9월 16일 ~ 11월 5일</span></li>
+    <li><span class="q">풀은 어떻게 하셨나요?</span><span class="sp">9월 16일 ~ 11월 5일</span></li>
+    <li><span class="q">약은 무엇을 치셨나요?</span><span class="sp">9월 16일 ~ 11월 15일</span></li>
+    <li><span class="q">약은 얼마나 타서 쓰셨나요?</span><span class="sp">9월 16일 ~ 11월 15일</span></li>
+    <li><span class="q">무슨 벌레나 병 때문에 치셨나요?</span><span class="sp">9월 16일 ~ 11월 15일</span></li>
+    <li><span class="q">약 치실 때 날씨는 어떻던가요?</span><span class="sp">9월 16일 ~ 11월 15일</span></li>
+    <li><span class="q">약 말고 다른 방법으로 잡아 보신 것이 있나요?</span><span class="sp">9월 16일 ~ 11월 15일</span></li>
+    <li><span class="q">벌레 먹은 자국이 보이던가요?</span><span class="sp">9월 16일 ~ 11월 10일</span></li>
+    <li><span class="q">오늘 배추 자란 모습이 어떻던가요?</span><span class="sp">9월 16일 ~ 11월 10일</span></li>
+    <li><span class="q">약 치고 나서 좀 나아졌던가요?</span><span class="sp">9월 19일 ~ 11월 15일</span></li>
+    <li><span class="q">지난번 약 치고 며칠 만인가요?</span><span class="sp">9월 23일 ~ 11월 15일</span></li>
+  </ol>
+  <h2>말씀하실 때</h2>
+  <ul class="guide">
+    <li><b>짧아도 괜찮습니다.</b> 한 마디여도 됩니다.</li>
+    <li><b>평소 말씨 그대로.</b> 사투리도, 중간에 끊겨도, 고쳐 말씀하셔도 괜찮습니다. 정해진 말투는 없습니다.</li>
+    <li><b>언제 하신 일인지 들어가게 해 주세요.</b> “몇 시”라고 하셔도 되고 “아침 먹고 나서”, “해 뜨자마자” 라고 하셔도 똑같이 좋습니다.</li>
+    <li><b>모르시는 것은 “모르겠다”고 하셔도 됩니다.</b> 억지로 맞춰 말씀하지 않으셔도 됩니다.</li>
+    <li><b>안 하신 일은 건너뛰세요.</b> 다 채우실 필요 없습니다.</li>
+  </ul>
+  <p class="foot">팜브레인 · 스쿨모아㈜ · 심은 날 2026.09.02 기준 · 2026.10.11</p>
+</section>
+<section class="sheet">
+  <p class="step">4 / 5 <span class="now">지금 이 장입니다</span></p>
+  <h1>속 찰 때</h1>
+  <p class="sub">심고 한 달 반 뒤</p>
+  <p class="when">이 장을 보시는 때 &nbsp; <b>10월 11일 ~ 10월 20일</b></p>
+  <p class="note">질문 아래 날짜는 <b>그 답이 있어야 하는 기간</b>입니다.</p>
+  <ol class="qs">
+    <li><span class="q">오늘 물이나 거름을 주셨나요?</span><span class="sp">10월 11일 ~ 11월 5일</span></li>
+    <li><span class="q">속이 얼마나 찼던가요?</span><span class="sp">10월 11일 ~ 11월 10일</span></li>
+    <li><span class="q">병든 포기가 보이던가요?</span><span class="sp">10월 11일 ~ 11월 15일</span></li>
+    <li><span class="q">한랭사나 덮개는 어떻게 하셨나요?</span><span class="sp">10월 11일부터 — 그 뒤로는 언제든</span></li>
+  </ol>
+  <h2>말씀하실 때</h2>
+  <ul class="guide">
+    <li><b>짧아도 괜찮습니다.</b> 한 마디여도 됩니다.</li>
+    <li><b>평소 말씨 그대로.</b> 사투리도, 중간에 끊겨도, 고쳐 말씀하셔도 괜찮습니다. 정해진 말투는 없습니다.</li>
+    <li><b>언제 하신 일인지 들어가게 해 주세요.</b> “몇 시”라고 하셔도 되고 “아침 먹고 나서”, “해 뜨자마자” 라고 하셔도 똑같이 좋습니다.</li>
+    <li><b>모르시는 것은 “모르겠다”고 하셔도 됩니다.</b> 억지로 맞춰 말씀하지 않으셔도 됩니다.</li>
+    <li><b>안 하신 일은 건너뛰세요.</b> 다 채우실 필요 없습니다.</li>
+  </ul>
+  <p class="foot">팜브레인 · 스쿨모아㈜ · 심은 날 2026.09.02 기준 · 2026.10.11</p>
+</section>
+<section class="sheet">
+  <p class="step">5 / 5</p>
+  <h1>거둘 때</h1>
+  <p class="sub">심고 두 달 뒤</p>
+  <p class="when">이 장을 보시는 때 &nbsp; <b>10월 21일부터</b></p>
+  <p class="note">질문 아래 날짜는 <b>그 답이 있어야 하는 기간</b>입니다.</p>
+  <ol class="qs">
+    <li><span class="q">언제쯤 거두실 생각인가요?</span><span class="sp">10월 21일 ~ 11월 5일</span></li>
+    <li><span class="q">오늘 몇 포기나 거두셨나요?</span><span class="sp">10월 26일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">거둔 배추는 어떻게 하셨나요?</span><span class="sp">10월 26일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">한 포기 무게가 어느 정도 되던가요?</span><span class="sp">10월 26일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">거두면서 버리신 것이 있던가요?</span><span class="sp">10월 26일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">몇 사람이 몇 시간 걸려 거두셨나요?</span><span class="sp">10월 26일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">거둘 때 쓰신 연장은 무엇인가요?</span><span class="sp">10월 26일부터 — 그 뒤로는 언제든</span></li>
+    <li><span class="q">배추 뒤에 무엇을 심거나 씨 넣으실 생각인가요?</span><span class="sp">11월 5일부터 — 그 뒤로는 언제든</span></li>
+  </ol>
+  <h2>말씀하실 때</h2>
+  <ul class="guide">
+    <li><b>짧아도 괜찮습니다.</b> 한 마디여도 됩니다.</li>
+    <li><b>평소 말씨 그대로.</b> 사투리도, 중간에 끊겨도, 고쳐 말씀하셔도 괜찮습니다. 정해진 말투는 없습니다.</li>
+    <li><b>언제 하신 일인지 들어가게 해 주세요.</b> “몇 시”라고 하셔도 되고 “아침 먹고 나서”, “해 뜨자마자” 라고 하셔도 똑같이 좋습니다.</li>
+    <li><b>모르시는 것은 “모르겠다”고 하셔도 됩니다.</b> 억지로 맞춰 말씀하지 않으셔도 됩니다.</li>
+    <li><b>안 하신 일은 건너뛰세요.</b> 다 채우실 필요 없습니다.</li>
+  </ul>
+  <p class="foot">팜브레인 · 스쿨모아㈜ · 심은 날 2026.09.02 기준 · 2026.10.11</p>
+</section>
+</body></html>
